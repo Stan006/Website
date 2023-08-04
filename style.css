@@ -30,7 +30,10 @@ header {
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s; /* Add a smooth transition effect */
-  margin-right: 150px; /* Adjust the margin for mobile spacing */
+  position: absolute;
+  top: 50%;
+  right: 20px; /* Adjust the right position */
+  transform: translateY(-50%);
 }
 
 /* On hover, change the button background color to a darker shade of red */
