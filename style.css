@@ -182,3 +182,14 @@ header::after {
   pointer-events: none; /* Allow clicks to pass through the overlay */
   z-index: -2; /* Move the overlay behind the content and blur */
 }
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .feedback-button {
+    right: 40px; /* Adjust the value to create more space */
+  }
+  
+  .header-container {
+    text-align: left; /* Align the header text to the left */
+  }
+}
