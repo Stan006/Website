@@ -219,6 +219,59 @@
         #scrollToTopBtn:hover {
             background-color: #c00;
         }
+
+        /* Theme Switcher Button Styling */
+        #themeSwitcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 1001;
+        }
+
+        #themeSwitcher:hover {
+            background-color: #0056b3;
+        }
+
+        /* Dark Theme */
+        body.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        header.dark-mode {
+            background-color: #222;
+        }
+
+        /* Game Section */
+        .game {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 15px;
+        }
+        .game-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .game-info {
+            padding: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .game {
+                margin-bottom: 20px;
+            }
+        }
         
     </style>
 </head>
@@ -229,7 +282,7 @@
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform"
             class="feedback-button">Give Feedback</a>
     </header>
-
+          <button id="themeSwitcher">Switch to Dark Mode</button>
     <main>
         <section class="games-container">
             <div class="game">
@@ -318,6 +371,23 @@
                 behavior: "smooth"
             });
         }
+    </script>
+
+    <script>
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        let darkMode = false;
+
+        themeSwitcher.addEventListener('click', () => {
+            darkMode = !darkMode;
+
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                themeSwitcher.textContent = 'Switch to Light Mode';
+            } else {
+                document.body.classList.remove('dark-mode');
+                themeSwitcher.textContent = 'Switch to Dark Mode';
+            }
+        });
     </script>
     
 </body>
