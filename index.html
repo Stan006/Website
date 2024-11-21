@@ -30,7 +30,7 @@
             margin: 0;
         }
 
-        /* Feedback button styling */
+      /* Feedback button styling */
 .feedback-button {
     background-color: #f00;
     color: white;
@@ -39,7 +39,6 @@
     border-radius: 5px;
     text-decoration: none;
     font-size: 16px;
-    margin-top: 7px;
     display: inline-block;
 }
 
@@ -298,14 +297,33 @@
         }
 
         /* Button container for alignment */
-        .button-container {
-        display: flex;
-        gap: 10px; /* Space between the buttons */
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        left: 20px;
-        justify-content: space-between; /* Center the buttons horizontally if needed */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    position: absolute;
+    top: 20px; /* Distance from the top of the header */
+    right: 20px; /* Keep the feedback button on the right */
+    left: 20px; /* Keep the theme button on the left */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    /* Stack buttons vertically on mobile */
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically */
+        position: static; /* Reset positioning */
+        top: auto; /* Reset top positioning */
+        right: auto; /* Reset right positioning */
+        left: auto; /* Reset left positioning */
+        align-items: center; /* Center buttons */
+        gap: 10px; /* Space between buttons */
+    }
+
+    /* Optional: Adjust title padding or margin for mobile */
+    header {
+        padding-top: 80px; /* Add extra space at the top for mobile */
+    }
+}
         
     </style>
 </head>
