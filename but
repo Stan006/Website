@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WheatBread Studios</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Theme Switcher Button Styling */
+        #themeSwitcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 1001;
+        }
+
+        #themeSwitcher:hover {
+            background-color: #0056b3;
+        }
+
+        /* Dark Theme */
+        body.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        header.dark-mode {
+            background-color: #222;
+        }
+
+        /* Game Section */
+        .game {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 15px;
+        }
+        .game-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .game-info {
+            padding: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .game {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>WheatBread Studios</h1>
+    </header>
+
+    <button id="themeSwitcher">Switch to Dark Mode</button>
+
+    <main>
+        <section class="games-container">
+            <div class="game">
+                <div class="game-image">
+                    <img src="OJp0eZ.png" alt="Midnight Crisis">
+                </div>
+                <div class="game-info">
+                    <h2>Midnight Crisis</h2>
+                    <p>Welcome to Midnight Crisis, a bone-chilling horror game that will leave you breathless.</p>
+                </div>
+            </div>
+            <!-- More game sections here -->
+        </section>
+    </main>
+
+    <script>
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        let darkMode = false;
+
+        themeSwitcher.addEventListener('click', () => {
+            darkMode = !darkMode;
+
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                themeSwitcher.textContent = 'Switch to Light Mode';
+            } else {
+                document.body.classList.remove('dark-mode');
+                themeSwitcher.textContent = 'Switch to Dark Mode';
+            }
+        });
+    </script>
+</body>
+
+</html>
