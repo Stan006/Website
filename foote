@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WheatBread Studios</title>
+    <style>
+        /* Add the previous styles here (no change needed) */
+        
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer .social-media {
+            margin-top: 20px;
+        }
+
+        footer .social-media a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer .social-media a:hover {
+            color: #f00;
+        }
+
+        footer .copyright {
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Projects</h1>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform"
+            class="feedback-button">Give Feedback</a>
+    </header>
+
+    <main>
+        <!-- Your game section content here -->
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Legal</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="social-media">
+            <a href="https://itch.io" target="_blank">Itch.io</a>
+            <a href="https://bsky.app" target="_blank">BlueSky</a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2024 WheatBread Studios. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>
