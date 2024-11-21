@@ -3,55 +3,174 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StanWheatBread</title>
+    <style>
+        /* Reset default margin and padding for all elements */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set a background color for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Feedback button in the header */
+        .feedback-button {
+            display: inline-block;
+            background-color: #f00;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        /* Center the main content and add some padding */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Style the game sections */
+        .game {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .game-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-info h2 {
+            margin-bottom: 10px;
+        }
+
+        .game-info p {
+            margin-bottom: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: none; /* Hide description by default */
+        }
+
+        .game-info p.expanded {
+            display: block; /* Show description when expanded */
+            white-space: normal; /* Allow multiline when expanded */
+        }
+
+        /* Style the "Show More" button */
+        .show-more {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Style the game updates section */
+        .updates {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            /* Stack games vertically on small screens */
+            .game {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <h1>Play Our Games</h1>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform">
-  <button>Give Feedback</button>
-</a>
+            <button class="feedback-button">Give Feedback</button>
+        </a>
     </header>
 
-    <main class="flex-container">
-        <div class="games-container">
-            <div class="game">
-                <div class="game-image">
-                    <img src="OJp0eZ.png" alt="Midnight Crisis">
-                </div>
-                <div class="game-info">
-                    <h2>Midnight Crisis</h2>
-                    <p>Welcome to Midnight Crisis, a bone-chilling horror game that will leave you breathless. In this game, you play as Subject IV, a person who has been kidnapped by an evil pharmaceutical company to be used as a test subject in their twisted experiments.
-
-                        As Subject IV, you must navigate through the pharmaceutical company's complex, uncovering the truth of their sinister experiments while the facility is under lockdown.</p>
-                    <p><a href="https://stanwheatbread.itch.io/midnight-crisis-full-game" target="_blank">Play on itch.io</a></p>
-                </div>
+    <main>
+        <div class="game">
+            <div class="game-image">
+                <img src="OJp0eZ.png" alt="Midnight Crisis">
             </div>
-            <div class="game">
-                <div class="game-image">
-                    <img src="mainbannerradiant.PNG" alt="Radiant Decay">
-                </div>
-                <div class="game-info">
-                    <h2>Radiant Decay</h2>
-                    <p>Late 1980s. Investigative journalist Ethan Brown pursues a trail of whispers to a hidden Ukrainian Nuclear Power Plant. Authorities deny its existence, and a distress call is its last cry for help. Alone and undeterred, you step into the shadows, where truth and terror entwine. Uncover the secrets or join the echoes lost to the wind.</p>
-                    <p><a href="https://stanwheatbread.itch.io/radiant-decay" target="_blank">Play on itch.io</a></p>
-                </div>
+            <div class="game-info">
+                <h2>Midnight Crisis</h2>
+                <p class="description">Welcome to Midnight Crisis, a bone-chilling horror game that will leave you breathless. In this game, you play as Subject IV, a person who has been kidnapped by an evil pharmaceutical company to be used as a test subject in their twisted experiments. As Subject IV, you must navigate through the pharmaceutical company's complex, uncovering the truth of their sinister experiments while the facility is under lockdown.</p>
+                <button class="show-more">Show More</button>
+                <p><a href="https://stanwheatbread.itch.io/midnight-crisis-full-game" target="_blank">Play on itch.io</a></p>
             </div>
         </div>
-        <section class="updates">
-            <h2>Game Updates</h2>
-            <p>Stay tuned for the latest updates and announcements about our games!</p>
-            <ul>
-                <li><strong>17/8/23: Update on Radiant Decay, Read More <a href="https://itch.io/blog/575967/radiant-decay-in-game-pictures">Here</a> </strong></li>
-                <li><strong>31/8/23: Information about the Story of Radiant Decay, Read More <a href="https://itch.io/blog/582446/radiant-decay-backstory">Here</a> </strong></li>
-                <li><strong>17/9/23: Radiant Decay has been released, Play Now <a href="https://stanwheatbread.itch.io/radiant-decay">Here</a> </strong></li>
-            </ul>
-        </section>
+        <div class="game">
+            <div class="game-image">
+                <img src="mainbannerradiant.PNG" alt="Radiant Decay">
+            </div>
+            <div class="game-info">
+                <h2>Radiant Decay</h2>
+                <p class="description">Late 1980s. Investigative journalist Ethan Brown pursues a trail of whispers to a hidden Ukrainian Nuclear Power Plant. Authorities deny its existence, and a distress call is its last cry for help. Alone and undeterred, you step into the shadows, where truth and terror entwine. Uncover the secrets or join the echoes lost to the wind.</p>
+                <button class="show-more">Show More</button>
+                <p><a href="https://stanwheatbread.itch.io/radiant-decay" target="_blank">Play on itch.io</a></p>
+            </div>
+        </div>
     </main>
+    <section class="updates">
+        <h2>Game Updates</h2>
+        <p>Stay tuned for the latest updates and announcements about our games!</p>
+        <ul>
+            <li><strong>17/8/23: Update on Radiant Decay, Read More <a href="https://itch.io/blog/575967/radiant-decay-in-game-pictures">Here</a> </strong></li>
+            <li><strong>31/8/23: Information about the Story of Radiant Decay, Read More <a href="https://itch.io/blog/582446/radiant-decay-backstory">Here</a> </strong></li>
+            <li><strong>17/9/23: Radiant Decay has been released, Play Now <a href="https://stanwheatbread.itch.io/radiant-decay">Here</a> </strong></li>
+        </ul>
+    </section>
+
+    <script>
+        const showMoreButtons = document.querySelectorAll('.show-more');
+        showMoreButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const description = button.previousElementSibling;
+                description.classList.toggle('expanded');
+                button.textContent = description.classList.contains('expanded') ? 'Show Less' : 'Show More';
+            });
+        });
+    </script>
 </body>
 
 </html>
