@@ -310,12 +310,13 @@
 @media (max-width: 768px) {
     /* Stack buttons vertically on mobile */
     .button-container {
-        flex-direction: column; /* Stack buttons vertically */
+        flex-direction: row; /* Stack buttons vertically */
         position: static; /* Reset positioning */
         top: auto; /* Reset top positioning */
         right: auto; /* Reset right positioning */
         left: auto; /* Reset left positioning */
-        align-items: center; /* Center buttons */
+       /* align-items: center;  Center buttons */
+        justify-contect: flex-start;
         gap: 10px; /* Space between buttons */
     }
 
