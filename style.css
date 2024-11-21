@@ -4,134 +4,118 @@ body, h1, h2, p {
   padding: 0;
 }
 
-/* Set a background color for the body */
+/* General body styling */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   background-color: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Style the header */
+/* Header styling */
 header {
   background-color: #333;
   color: #fff;
-  padding: 40px 0; /* Increase the padding to create more space around the text */
+  padding: 20px;
   text-align: center;
-  position: relative; /* To create a stacking context for the blur */
+  position: relative;
 }
 
-/* Feedback button in the header */
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
 .feedback-button {
   display: inline-block;
   background-color: #f00;
   color: #fff;
-  padding: 10px 20px;
+  padding: 10px 15px;
   text-decoration: none;
   border-radius: 5px;
-  transition: background-color 0.3s; /* Add a smooth transition effect */
+  font-size: 0.9rem;
   position: absolute;
   top: 50%;
-  right: 20px; /* Adjust the right position */
+  right: 20px;
   transform: translateY(-50%);
+  transition: background-color 0.3s ease;
 }
 
-/* On hover, change the button background color to a darker shade of red */
 .feedback-button:hover {
   background-color: #c00;
 }
 
-/* Center the header content and add space between them */
-.header-container {
+/* Main container */
+main {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px; /* Add some horizontal padding to the header content */
+  margin: 20px auto;
+  padding: 0 20px;
 }
 
-header h1 {
-  font-size: 48px; /* Increase the font size for a more prominent header */
-  margin: 0; /* Remove default margin to eliminate extra spacing */
-}
-
-/* Center the main content and add some padding */
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex; /* Set the main container as a flex container */
-  flex-wrap: wrap; /* Enable flex items to wrap when needed */
-  justify-content: space-between; /* Add space between the game sections and game updates section */
-}
-
-/* Style the game sections container */
+/* Game section styling */
 .games-container {
-  flex: 1; /* The game sections container occupies equal space */
   display: flex;
-  flex-wrap: wrap; /* Enable game sections to wrap to the next row */
+  flex-wrap: wrap;
+  gap: 20px;
+  flex: 1 1 100%;
 }
 
-/* Style the game sections */
 .game {
-  flex: 0 0 calc(50% - 20px); /* Each game section occupies 50% of the width with some margin */
-  position: relative; /* To make sure overlay is positioned relative to the game section */
-  display: flex;
-  flex-direction: column; /* Arrange items vertically */
   background-color: #fff;
   border-radius: 5px;
-  overflow: hidden; /* To contain the blur within the game section */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  margin-bottom: 20px; /* Add spacing between the game sections (space at the bottom) */
-  margin-right: 20px; /* Add spacing between the game sections (space at the right) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex: 1 1 calc(50% - 10px);
+  display: flex;
+  flex-direction: column;
 }
 
 .game-image {
-  flex: 0 0 auto; /* Let the image determine its size */
-  display: flex;
-  align-items: center; /* Center the image vertically */
-  justify-content: center; /* Center the image horizontally */
-  border-radius: 10px 10px 0 0; /* Add rounded corners to the top of the image */
-  overflow: hidden; /* Hide any content that overflows the rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow to the image */
+  height: 200px;
+  overflow: hidden;
 }
 
 .game-image img {
-  max-width: 100%;
-  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .game-info {
-  flex: 1;
-  padding: 20px; /* Add some padding to the game info section */
+  padding: 15px;
 }
 
-/* Add some spacing between game title and description */
 .game h2 {
+  font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
-/* Style the link to the itch.io page */
+.game-info p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
 .game-info a {
   display: inline-block;
   background-color: #333;
   color: #fff;
-  padding: 10px 20px;
+  padding: 8px 12px;
   text-decoration: none;
   border-radius: 5px;
-  margin-top: 10px;
-  transition: background-color 0.3s; /* Add a smooth transition effect */
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
 }
 
-/* On hover, change link background color to red */
 .game-info a:hover {
   background-color: #f00;
 }
 
-/* Style the game updates section */
+/* Updates section */
 .updates {
-  flex: 0 0 calc(50% - 20px); /* The game updates section occupies 50% of the width with some margin */
+  flex: 1 1 calc(50% - 10px);
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 5px;
@@ -139,7 +123,7 @@ main {
 }
 
 .updates h2 {
-  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .updates ul {
@@ -149,47 +133,52 @@ main {
 
 .updates li {
   margin-bottom: 10px;
+  font-size: 0.9rem;
 }
 
-/* Blurred overlay for the header */
-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  filter: blur(5px); /* Adjust the blur intensity as needed */
-  opacity: 0.5; /* Adjust the opacity to control the intensity of the blur */
-  z-index: -1; /* Move the overlay behind the content */
-}
-
-/* Crosshatch pattern overlay for the header */
-header::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%),
-                    linear-gradient(-45deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%),
-                    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.5) 75%),
-                    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.5) 75%);
-  background-size: 20px 20px;
-  pointer-events: none; /* Allow clicks to pass through the overlay */
-  z-index: -2; /* Move the overlay behind the content and blur */
-}
-
-/* Media Query for Mobile */
+/* Responsive design */
 @media (max-width: 768px) {
-  .feedback-button {
-    right: 40px; /* Adjust the value to create more space */
+  header h1 {
+    font-size: 1.8rem;
   }
-  
-  .header-container {
-    text-align: left; /* Align the header text to the left */
+
+  .feedback-button {
+    position: static;
+    margin-top: 10px;
+    transform: none;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .games-container, .updates {
+    flex: 1 1 100%;
+  }
+
+  .game {
+    flex: 1 1 100%;
+  }
+
+  .game-image {
+    height: 150px;
+  }
+
+  .game-info {
+    padding: 10px;
+  }
+
+  .game-info a {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .updates {
+    padding: 15px;
+  }
+
+  .updates h2 {
+    font-size: 1.2rem;
   }
 }
