@@ -30,21 +30,22 @@
             margin: 0;
         }
 
-        .feedback-button {
-            background-color: #f00;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 16px;
-            margin-top: 7px;
-            display: inline-block;
-        }
+        /* Feedback button styling */
+.feedback-button {
+    background-color: #f00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 7px;
+    display: inline-block;
+}
 
-        .feedback-button:hover {
-            background-color: #c00;
-        }
+.feedback-button:hover {
+    background-color: #c00;
+}
 
         main {
             padding: 20px;
@@ -221,23 +222,19 @@
         }
 
         /* Theme Switcher Button Styling */
-        #themeSwitcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            z-index: 1001;
-        }
+#themeSwitcher {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        #themeSwitcher:hover {
-            background-color: #0056b3;
-        }
+#themeSwitcher:hover {
+    background-color: #0056b3;
+}
 
         /* Dark Theme Styles */
         body.dark-mode {
@@ -299,6 +296,12 @@
                 margin-bottom: 20px;
             }
         }
+
+        /* Button container for alignment */
+    .button-container {
+    display: flex;
+    gap: 10px; /* Space between the buttons */
+    justify-content: center; /* Center the buttons horizontally if needed */
         
     </style>
 </head>
@@ -306,6 +309,11 @@
 <body>
     <header>
         <h1>Projects</h1>
+        <div class="button-container">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform"
+            class="feedback-button">Give Feedback</a>
+        <button id="themeSwitcher">Switch to Dark Mode</button>
+    </div>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform"
             class="feedback-button">Give Feedback</a>
     </header>
