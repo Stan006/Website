@@ -1,161 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<header>
+    <h1>Projects</h1>
+    <div class="button-container">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform"
+            class="feedback-button">Give Feedback</a>
+        <button id="themeSwitcher">Switch to Dark Mode</button>
+    </div>
+</header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WheatBread Studios</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
 
-        header h1 {
-            margin: 0;
-        }
+/* Button container for alignment */
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between the buttons */
+    justify-content: center; /* Center the buttons horizontally if needed */
+}
 
-        /* Theme Switcher Button Styling */
-        #themeSwitcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            z-index: 1001;
-        }
+/* Feedback button styling */
+.feedback-button {
+    background-color: #f00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 7px;
+    display: inline-block;
+}
 
-        #themeSwitcher:hover {
-            background-color: #0056b3;
-        }
+.feedback-button:hover {
+    background-color: #c00;
+}
 
-        /* Dark Theme Styles */
-        body.dark-mode {
-            background-color: #333;
-            color: white;
-        }
+/* Theme Switcher Button Styling */
+#themeSwitcher {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        header.dark-mode {
-            background-color: #222;
-        }
-
-        .game {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            padding: 15px;
-            color: #333; /* Default text color for light mode */
-        }
-
-        .game-info {
-            padding: 15px;
-        }
-
-        .game-info h2, .game-info p {
-            color: #333; /* Default text color for light mode */
-        }
-
-        /* Dark Theme Game Section */
-        body.dark-mode .game {
-            background-color: #444;
-            color: white; /* Text color for dark mode */
-        }
-
-        body.dark-mode .game-info h2,
-        body.dark-mode .game-info p {
-            color: white; /* Ensures the text in dark mode is visible */
-        }
-
-        /* Updates Section Styles */
-        .updates {
-            background-color: white;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            color: #333; /* Default text color for light mode */
-        }
-
-        /* Dark Theme Updates Section */
-        body.dark-mode .updates {
-            background-color: #444;
-            color: white; /* Text color for dark mode */
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .game {
-                margin-bottom: 20px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <h1>WheatBread Studios</h1>
-    </header>
-
-    <button id="themeSwitcher">Switch to Dark Mode</button>
-
-    <main>
-        <section class="games-container">
-            <div class="game">
-                <div class="game-image">
-                    <img src="OJp0eZ.png" alt="Midnight Crisis">
-                </div>
-                <div class="game-info">
-                    <h2>Midnight Crisis</h2>
-                    <p>Welcome to Midnight Crisis, a bone-chilling horror game that will leave you breathless.</p>
-                </div>
-            </div>
-            <!-- More game sections here -->
-        </section>
-
-        <!-- Updates Section -->
-        <section class="updates">
-            <h2>Latest Updates</h2>
-            <p>We are currently working on some exciting features for the upcoming update! Stay tuned!</p>
-        </section>
-    </main>
-
-    <script>
-        const themeSwitcher = document.getElementById('themeSwitcher');
-        let darkMode = false;
-
-        themeSwitcher.addEventListener('click', () => {
-            darkMode = !darkMode;
-
-            if (darkMode) {
-                document.body.classList.add('dark-mode');
-                themeSwitcher.textContent = 'Switch to Light Mode';
-            } else {
-                document.body.classList.remove('dark-mode');
-                themeSwitcher.textContent = 'Switch to Dark Mode';
-            }
-        });
-    </script>
-</body>
-
-</html>
+#themeSwitcher:hover {
+    background-color: #0056b3;
+}
