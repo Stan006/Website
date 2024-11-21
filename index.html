@@ -151,6 +151,51 @@
                 margin-bottom: 20px;
             }
         }
+
+    /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer .social-media {
+            margin-top: 20px;
+        }
+
+        footer .social-media a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer .social-media a:hover {
+            color: #f00;
+        }
+
+        footer .copyright {
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+        
     </style>
 </head>
 
@@ -208,6 +253,24 @@
             </ul>
         </section>
     </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Legal</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="social-media">
+            <a href="https://itch.io" target="_blank">Itch.io</a>
+            <a href="https://bsky.app" target="_blank">BlueSky</a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2024 WheatBread Studios. All rights reserved.
+        </div>
+    </footer>
+
 </body>
 
 </html>
