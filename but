@@ -1,19 +1,18 @@
-<header>
-    <h1>Projects</h1>
-    <div class="button-container">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform"
-            class="feedback-button">Give Feedback</a>
-        <button id="themeSwitcher">Switch to Dark Mode</button>
-    </div>
-</header>
-
-
+/* Header styling to give it a relative positioning context */
+header {
+    position: relative;
+    padding: 20px;
+    text-align: center; /* Center-align title */
+}
 
 /* Button container for alignment */
 .button-container {
     display: flex;
-    gap: 10px; /* Space between the buttons */
-    justify-content: center; /* Center the buttons horizontally if needed */
+    justify-content: space-between; /* Space between buttons */
+    position: absolute;
+    top: 20px; /* Distance from the top of the header */
+    right: 20px; /* Keep the feedback button on the right */
+    left: 20px; /* Keep the theme button on the left */
 }
 
 /* Feedback button styling */
@@ -25,7 +24,6 @@
     border-radius: 5px;
     text-decoration: none;
     font-size: 16px;
-    margin-top: 7px;
     display: inline-block;
 }
 
@@ -46,4 +44,23 @@
 
 #themeSwitcher:hover {
     background-color: #0056b3;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    /* Stack buttons vertically on mobile */
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically */
+        position: static; /* Reset positioning */
+        top: auto; /* Reset top positioning */
+        right: auto; /* Reset right positioning */
+        left: auto; /* Reset left positioning */
+        align-items: center; /* Center buttons */
+        gap: 10px; /* Space between buttons */
+    }
+
+    /* Optional: Adjust title padding or margin for mobile */
+    header {
+        padding-top: 80px; /* Add extra space at the top for mobile */
+    }
 }
