@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WheatBread Studios</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         /* General Styles */
         body {
@@ -50,7 +49,7 @@
             background-color: #0056b3;
         }
 
-        /* Dark Theme */
+        /* Dark Theme Styles */
         body.dark-mode {
             background-color: #333;
             color: white;
@@ -60,21 +59,32 @@
             background-color: #222;
         }
 
-        /* Game Section */
         .game {
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             padding: 15px;
-        }
-        .game-image img {
-            width: 100%;
-            height: auto;
+            color: #333; /* Default text color for light mode */
         }
 
         .game-info {
             padding: 15px;
+        }
+
+        .game-info h2, .game-info p {
+            color: #333; /* Default text color for light mode */
+        }
+
+        /* Dark Theme Game Section */
+        body.dark-mode .game {
+            background-color: #444;
+            color: white; /* Text color for dark mode */
+        }
+
+        body.dark-mode .game-info h2,
+        body.dark-mode .game-info p {
+            color: white; /* Ensures the text in dark mode is visible */
         }
 
         /* Responsive Design */
