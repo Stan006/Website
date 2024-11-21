@@ -87,6 +87,22 @@
             color: white; /* Ensures the text in dark mode is visible */
         }
 
+        /* Updates Section Styles */
+        .updates {
+            background-color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #333; /* Default text color for light mode */
+        }
+
+        /* Dark Theme Updates Section */
+        body.dark-mode .updates {
+            background-color: #444;
+            color: white; /* Text color for dark mode */
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .game {
@@ -115,6 +131,12 @@
                 </div>
             </div>
             <!-- More game sections here -->
+        </section>
+
+        <!-- Updates Section -->
+        <section class="updates">
+            <h2>Latest Updates</h2>
+            <p>We are currently working on some exciting features for the upcoming update! Stay tuned!</p>
         </section>
     </main>
 
