@@ -77,6 +77,8 @@
 
         .game-info {
             padding: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
         .game-info h2 {
@@ -86,31 +88,33 @@
 
         .game-info p {
             margin: 0 0 15px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3; /* Show only 3 lines initially */
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            max-height: 100px; /* Limit the height of the description */
+            overflow-y: auto; /* Enable vertical scrolling if content exceeds */
+            padding-right: 5px;
         }
 
-        .game-info p.expanded {
-            -webkit-line-clamp: unset;
-            overflow: visible;
+        .game-info p::-webkit-scrollbar {
+            width: 5px;
         }
 
-        .game-info .read-more-btn {
+        .game-info p::-webkit-scrollbar-thumb {
             background-color: #333;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 14px;
-            cursor: pointer;
-            margin-top: 10px;
+            border-radius: 3px;
         }
 
-        .game-info .read-more-btn:hover {
+        .game-info p::-webkit-scrollbar-thumb:hover {
             background-color: #f00;
+        }
+
+        .game-info a {
+            color: #f00;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: auto;
+        }
+
+        .game-info a:hover {
+            text-decoration: underline;
         }
 
         .updates {
@@ -164,8 +168,8 @@
                 </div>
                 <div class="game-info">
                     <h2>Midnight Crisis</h2>
-                    <p id="desc1">Welcome to Midnight Crisis, a bone-chilling horror game that will leave you breathless as you explore a terrifying world full of suspense...</p>
-                    <button class="read-more-btn" onclick="toggleDescription('desc1', this)">Read More</button>
+                    <p>Welcome to Midnight Crisis, a bone-chilling horror game that will leave you breathless as you
+                        explore a terrifying world full of suspense and mystery. Prepare for endless thrills!</p>
                     <a href="https://stanwheatbread.itch.io/midnight-crisis-full-game" target="_blank">Play on itch.io</a>
                 </div>
             </div>
@@ -176,8 +180,8 @@
                 </div>
                 <div class="game-info">
                     <h2>Radiant Decay</h2>
-                    <p id="desc2">Investigative journalist Ethan Brown pursues a trail of whispers to a hidden nuclear plant with secrets that could change the world forever...</p>
-                    <button class="read-more-btn" onclick="toggleDescription('desc2', this)">Read More</button>
+                    <p>Investigative journalist Ethan Brown pursues a trail of whispers to a hidden nuclear plant with
+                        secrets that could change the world forever. Can he uncover the truth before it's too late?</p>
                     <a href="https://stanwheatbread.itch.io/radiant-decay" target="_blank">Play on itch.io</a>
                 </div>
             </div>
@@ -195,14 +199,6 @@
             </ul>
         </section>
     </main>
-
-    <script>
-        function toggleDescription(descId, btn) {
-            const desc = document.getElementById(descId);
-            const isExpanded = desc.classList.toggle('expanded');
-            btn.textContent = isExpanded ? 'Read Less' : 'Read More';
-        }
-    </script>
 </body>
 
 </html>
