@@ -35,22 +35,24 @@
 
         .button-container {
             display: flex;
-            justify-content: space-between;
+           /*  justify-content: space-between; */
             position: relative;
             margin-top: 10px;
             gap: 15px;
             align-items: center;
+            justify-content: flex-end; /* Align buttons to the right */
         }
 
         .feedback-button,
-        #themeSwitcher {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 14px;
-            cursor: pointer;
-        }
+#themeSwitcher {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text wrapping */
+}
 
         .feedback-button {
             background-color: #f00;
