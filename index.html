@@ -485,76 +485,68 @@
     </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Get the buttons and banner
-        let acceptCookiesBtn = document.getElementById("acceptCookiesBtn");
-        let rejectCookiesBtn = document.getElementById("rejectCookiesBtn");
-        let cookieConsentBanner = document.getElementById("cookieConsentBanner");
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get the buttons and banner
+    let acceptCookiesBtn = document.getElementById("acceptCookiesBtn");
+    let rejectCookiesBtn = document.getElementById("rejectCookiesBtn");
+    let cookieConsentBanner = document.getElementById("cookieConsentBanner");
 
-        // Function to check if consent is expired (e.g., after 1 year)
-        const isConsentExpired = () => {
-            const consentTimestamp = localStorage.getItem("cookieConsentTimestamp");
-            const currentTimestamp = new Date().getTime();
-            const consentExpiryTime = 365 * 24 * 60 * 60 * 1000; // 1 year in milliseconds
-            return consentTimestamp && (currentTimestamp - consentTimestamp > consentExpiryTime);
+    // Function to check if consent is expired (e.g., after 1 year)
+    const isConsentExpired = () => {
+      const consentTimestamp = localStorage.getItem("cookieConsentTimestamp");
+      const currentTimestamp = new Date().getTime();
+      const consentExpiryTime = 365 * 24 * 60 * 60 * 1000; // 1 year in milliseconds
+      return consentTimestamp && (currentTimestamp - consentTimestamp > consentExpiryTime);
+    };
+
+    // Check if the user has already given or rejected consent and if it has expired
+    const consentStatus = localStorage.getItem("cookieConsent");
+    const consentTimestamp = localStorage.getItem("cookieConsentTimestamp");
+    if ((consentStatus === "accepted" || consentStatus === "rejected") && !isConsentExpired()) {
+      // If consent has already been given or rejected and it's not expired, hide the banner
+      cookieConsentBanner.style.display = "none";
+    }
+
+    // If the banner and buttons are found, add event listeners
+    if (acceptCookiesBtn && rejectCookiesBtn && cookieConsentBanner) {
+      // When the user clicks "Accept", show Google Analytics and hide the banner
+      acceptCookiesBtn.addEventListener("click", () => {
+        // Ensure user consent is recorded before loading tracking scripts
+        localStorage.setItem("cookieConsent", "accepted");
+        localStorage.setItem("cookieConsentTimestamp", new Date().getTime()); // Store timestamp of consent
+
+        // Load Google Analytics script only after consent is given
+        let gtagScript = document.createElement("script");
+        gtagScript.id = "google-analytics";
+        gtagScript.async = true;
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-2FD0X1BBMS"; // Replace with your actual Google Analytics ID
+        document.head.appendChild(gtagScript);
+
+        // Initialize Google Analytics tracking
+        gtagScript.onload = () => {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-2FD0X1BBMS'); // Replace with your actual Google Analytics ID
         };
 
-        // Check if the user has already given or rejected consent and if it has expired
-        const consentStatus = localStorage.getItem("cookieConsent");
-        const consentTimestamp = localStorage.getItem("cookieConsentTimestamp");
-        if ((consentStatus === "accepted" || consentStatus === "rejected") && !isConsentExpired()) {
-            // If consent has already been given or rejected and it's not expired, hide the banner
-            cookieConsentBanner.style.display = "none";
-        } else if (consentStatus === "accepted" && !isConsentExpired()) {
-            // If the user already accepted cookies, load Google Analytics immediately
-            loadGoogleAnalytics();
-            cookieConsentBanner.style.display = "none";
-        }
+        // Close the cookie consent banner
+        cookieConsentBanner.style.display = "none";
+      });
 
-        // Function to load Google Analytics script
-        const loadGoogleAnalytics = () => {
-            let gtagScript = document.createElement("script");
-            gtagScript.id = "google-analytics";
-            gtagScript.async = true;
-            gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-2FD0X1BBMS"; // Replace with your actual Google Analytics ID
-            document.head.appendChild(gtagScript);
+      // When the user clicks "Reject", close the banner and do not load Google Analytics
+      rejectCookiesBtn.addEventListener("click", () => {
+        // Record rejection of cookies
+        localStorage.setItem("cookieConsent", "rejected");
+        localStorage.setItem("cookieConsentTimestamp", new Date().getTime()); // Store timestamp of rejection
 
-            // Initialize Google Analytics tracking
-            gtagScript.onload = () => {
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-2FD0X1BBMS'); // Replace with your actual ID
-            };
-        };
-
-        // If the banner and buttons are found, add event listeners
-        if (acceptCookiesBtn && rejectCookiesBtn && cookieConsentBanner) {
-            // When the user clicks "Accept", show Google Analytics and hide the banner
-            acceptCookiesBtn.addEventListener("click", () => {
-                // Ensure user consent is recorded before loading tracking scripts
-                localStorage.setItem("cookieConsent", "accepted");
-                localStorage.setItem("cookieConsentTimestamp", new Date().getTime()); // Store timestamp of consent
-
-                // Load Google Analytics script only after consent is given
-                loadGoogleAnalytics();
-
-                // Close the cookie consent banner
-                cookieConsentBanner.style.display = "none";
-            });
-
-            // When the user clicks "Reject", close the banner and do not load Google Analytics
-            rejectCookiesBtn.addEventListener("click", () => {
-                // Record rejection of cookies
-                localStorage.setItem("cookieConsent", "rejected");
-                localStorage.setItem("cookieConsentTimestamp", new Date().getTime()); // Store timestamp of rejection
-
-                // Close the cookie consent banner
-                cookieConsentBanner.style.display = "none";
-            });
-        }
-    });
+        // Close the cookie consent banner
+        cookieConsentBanner.style.display = "none";
+      });
+    }
+  });
 </script>
+
 
 
 
