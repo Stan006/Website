@@ -308,11 +308,37 @@
 </script>
     
     <script>
-        const themeSwitcher = document.getElementById('themeSwitcher');
-        themeSwitcher.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-    </script>
+    const themeSwitcher = document.getElementById('themeSwitcher');
+
+    // Check saved theme preference on page load
+    const savedTheme = localStorage.getItem('darkMode');
+    let darkMode = savedTheme === 'true'; // Convert string back to boolean
+
+    // Apply saved theme on page load
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+        themeSwitcher.textContent = 'Switch to Light Mode';
+    } else {
+        themeSwitcher.textContent = 'Switch to Dark Mode';
+    }
+
+    // Toggle theme and save preference
+    themeSwitcher.addEventListener('click', () => {
+        darkMode = !darkMode;
+
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+            themeSwitcher.textContent = 'Switch to Light Mode';
+        } else {
+            document.body.classList.remove('dark-mode');
+            themeSwitcher.textContent = 'Switch to Dark Mode';
+        }
+
+        // Save the current theme preference
+        localStorage.setItem('darkMode', darkMode);
+    });
+</script>
+
 </body>
 
 </html>
