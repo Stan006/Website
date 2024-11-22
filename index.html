@@ -505,7 +505,28 @@
         if ((consentStatus === "accepted" || consentStatus === "rejected") && !isConsentExpired()) {
             // If consent has already been given or rejected and it's not expired, hide the banner
             cookieConsentBanner.style.display = "none";
+        } else if (consentStatus === "accepted" && !isConsentExpired()) {
+            // If the user already accepted cookies, load Google Analytics immediately
+            loadGoogleAnalytics();
+            cookieConsentBanner.style.display = "none";
         }
+
+        // Function to load Google Analytics script
+        const loadGoogleAnalytics = () => {
+            let gtagScript = document.createElement("script");
+            gtagScript.id = "google-analytics";
+            gtagScript.async = true;
+            gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-2FD0X1BBMS"; // Replace with your actual Google Analytics ID
+            document.head.appendChild(gtagScript);
+
+            // Initialize Google Analytics tracking
+            gtagScript.onload = () => {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-2FD0X1BBMS'); // Replace with your actual ID
+            };
+        };
 
         // If the banner and buttons are found, add event listeners
         if (acceptCookiesBtn && rejectCookiesBtn && cookieConsentBanner) {
@@ -516,19 +537,7 @@
                 localStorage.setItem("cookieConsentTimestamp", new Date().getTime()); // Store timestamp of consent
 
                 // Load Google Analytics script only after consent is given
-                let gtagScript = document.createElement("script");
-                gtagScript.id = "google-analytics";
-                gtagScript.async = true;
-                gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-2FD0X1BBMS"; // Replace with your actual Google Analytics ID
-                document.head.appendChild(gtagScript);
-
-                // Initialize Google Analytics tracking
-                gtagScript.onload = () => {
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-2FD0X1BBMS'); // Replace with your actual ID
-                };
+                loadGoogleAnalytics();
 
                 // Close the cookie consent banner
                 cookieConsentBanner.style.display = "none";
@@ -546,6 +555,7 @@
         }
     });
 </script>
+
 
 
 
