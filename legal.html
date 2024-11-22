@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 10px;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .feedback-button,
+        #themeSwitcher {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .feedback-button {
+            background-color: #f00;
+            color: white;
+        }
+
+        .feedback-button:hover {
+            background-color: #c00;
+        }
+
+        #themeSwitcher {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        #themeSwitcher:hover {
+            background-color: #0056b3;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            color: #333;
+            border-bottom: 2px solid #f00;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #f00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .social-media a {
+            margin: 0 10px;
+        }
+
+        .copyright {
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #222;
+            color: white;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer {
+            background-color: #333;
+        }
+
+        body.dark-mode main {
+            background-color: #333;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-mode .section h2 {
+            color: #f00;
+        }
+
+        body.dark-mode .section p {
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Legal</h1>
+        <div class="button-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform"
+                class="feedback-button">Give Feedback</a>
+            <button id="themeSwitcher">Switch to Dark Mode</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>1. Terms of Service (ToS)</h2>
+            <p>By accessing and using this website, you agree to comply with the terms and conditions outlined herein.
+                The games and content provided on this site are free to download and play for personal, non-commercial
+                use. You may not redistribute, modify, reverse engineer, or exploit the game or any part of it without
+                express permission from the game developer.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Privacy Policy</h2>
+            <p>This website does not collect, store, or share any personal information. We do not use cookies or any
+                other tracking technologies. By using this site, you acknowledge that no personal data is being
+                collected.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. Copyright Notice</h2>
+            <p>All content on this website, including but not limited to the games, text, images, and logos, is
+                copyrighted and owned by WheatBread Studios (© 2024). All rights are reserved. Unauthorized
+                use, reproduction, or distribution of the content is prohibited.</p>
+        </div>
+
+        <div class="section">
+            <h2>4. Disclaimer</h2>
+            <p>The games and content provided on this website are offered "as is" without warranties of any kind, either
+                express or implied. WheatBread Studios does not accept responsibility for any issues, damages,
+                or technical problems arising from the use of the games or this website. The games may contain bugs or
+                compatibility issues, and we make no guarantees regarding their functionality.</p>
+        </div>
+
+        <div class="section">
+            <h2>5. End-User License Agreement (EULA)</h2>
+            <p>By downloading or playing the games, you agree to the terms of the End-User License Agreement (EULA),
+                which grants you the right to install and play the game for personal use only. Redistribution,
+                modification, or reverse-engineering of the game is strictly prohibited.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <a href="#">About Us</a> | <a href="#">Legal</a> | <a href="#">Contact</a>
+        </div>
+        <div class="social-media">
+            <a href="https://stanwheatbread.itch.io/">Itch.io</a>
+            <a href="https://bsky.app/profile/wheatbreadstudio.bsky.social">BlueSky</a>
+        </div>
+        <div class="copyright">
+            &copy; 2024 WheatBread Studios. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        themeSwitcher.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+
+</html>
