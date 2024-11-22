@@ -482,44 +482,53 @@
     </script>
 
 <script>
-    // Check for previous consent
-    if (localStorage.getItem('cookieConsent') === 'accepted') {
-        // If accepted, show Google Analytics
-        showGoogleAnalytics();
-        document.getElementById('cookieConsentBanner').style.display = 'none';
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+  const banner = document.getElementById("cookie-consent-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const rejectBtn = document.getElementById("reject-cookies");
 
-    // Cookie consent handling for "Accept" button
-    document.getElementById('acceptCookiesBtn').addEventListener('click', function() {
-        // Store consent in localStorage
-        localStorage.setItem('cookieConsent', 'accepted');
+  // Check if the user already accepted or rejected cookies
+  if (localStorage.getItem('cookies-accepted') === 'true') {
+    banner.style.display = 'none'; // Hide banner if already accepted
+  } else if (localStorage.getItem('cookies-rejected') === 'true') {
+    banner.style.display = 'none'; // Hide banner if already rejected
+  }
 
-        // Show Google Analytics script
-        showGoogleAnalytics();
+  // Accept button functionality
+  acceptBtn.addEventListener("click", function () {
+    localStorage.setItem('cookies-accepted', 'true'); // Store the acceptance in localStorage
+    localStorage.removeItem('cookies-rejected'); // Remove rejection flag if it exists
+    banner.style.display = 'none'; // Hide the banner
 
-        // Hide the cookie consent banner
-        document.getElementById('cookieConsentBanner').style.display = 'none';
-    });
+    // Add any additional code here for cookies being activated or tracking
+    console.log('Cookies accepted');
+  });
 
-    // Cookie consent handling for "Reject" button
-    document.getElementById('rejectCookiesBtn').addEventListener('click', function() {
-        // Store rejection in localStorage (optional, for clarity)
-        localStorage.setItem('cookieConsent', 'rejected');
+    document.getElementById('acceptCookiesBtn').addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookieConsentBanner').style.display = 'none';
+});
+
+document.getElementById('rejectCookiesBtn').addEventListener('click', () => {
+    document.getElementById('cookieConsentBanner').style.display = 'none';
+});
+
+// Check if consent is already given
+if (localStorage.getItem('cookiesAccepted') === 'true') {
+    document.getElementById('cookieConsentBanner').style.display = 'none';
+}
         
-        // Hide the cookie consent banner
-        document.getElementById('cookieConsentBanner').style.display = 'none';
-    });
+  // Reject button functionality
+  rejectBtn.addEventListener("click", function () {
+    localStorage.setItem('cookies-rejected', 'true'); // Store the rejection in localStorage
+    localStorage.removeItem('cookies-accepted'); // Remove acceptance flag if it exists
+    banner.style.display = 'none'; // Hide the banner
 
-    // Function to show Google Analytics
-    function showGoogleAnalytics() {
-        document.getElementById('google-analytics').style.display = 'block';
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            window.dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-2FD0X1BBMS');
-    }
+    // Optionally, add code to handle cookie rejection (e.g., disable tracking)
+    console.log('Cookies rejected');
+  });
+});
+
 </script>    
 </body>
 
