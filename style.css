@@ -34,18 +34,13 @@ body {
   min-height: 100vh;
 }
 
-.dark-mode {
+/* Dark mode applies on html */
+html.dark-mode {
   background-color: var(--bg-dark);
   color: var(--text-dark);
 }
 
-html.dark-mode body {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
-}
-
-
-.dark-mode .updates {
+html.dark-mode .updates {
   background-color: var(--card-dark);
 }
 
@@ -63,7 +58,7 @@ header {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dark-mode header {
+html.dark-mode header {
   background-color: var(--bg-dark);
   color: var(--text-dark);
 }
@@ -131,8 +126,9 @@ main {
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.dark-mode .game {
+html.dark-mode .game {
   background-color: var(--card-dark);
+  color: var(--text-dark);
 }
 
 .game:hover {
@@ -164,6 +160,10 @@ main {
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark-mode .updates {
+  background-color: var(--card-dark);
 }
 
 .updates ul {
