@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WheatBread Projects</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Explore WheatBread Projects featuring thrilling indie games." />
-  <meta name="keywords" content="indie games, horror games, adventure games" />
-  <meta name="author" content="WheatBread Studios" />
+  <meta name="description" content="Explore WheatBread Projects featuring thrilling indie games.">
+  <meta name="keywords" content="indie games, horror games, adventure games">
+  <meta name="author" content="WheatBread Studios">
 
   <!-- Open Graph (OG) Meta Tags -->
-  <meta property="og:title" content="WheatBread Projects" />
-  <meta property="og:description" content="Dive into our thrilling indie games and updates." />
-  <meta property="og:url" content="https://stan006.github.io/Website/index.html" />
-  <meta property="og:image" content="https://stan006.github.io/Website/preview.jpg" />
+  <meta property="og:title" content="WheatBread Projects">
+  <meta property="og:description" content="Dive into our thrilling indie games and updates.">
+  <meta property="og:url" content="https://stan006.github.io/Website/index.html">
+  <meta property="og:image" content="https://stan006.github.io/Website/preview.jpg">
 
   <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://stan006.github.io/Website/preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://stan006.github.io/Website/preview.jpg">
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<script>
-  if (localStorage.getItem('darkMode') === 'true') {
-    document.documentElement.classList.add('dark-mode');
-  }
-</script>
-
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  
+  <script>
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
 </head>
 <body>
-  <div id="cookie-consent-banner" class="cookie-consent-banner">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div id="cookie-consent-banner" class="cookie-consent-banner" role="region" aria-label="Cookie consent banner">
     <p>We use cookies to enhance your experience. By clicking "Accept", you consent to our use of cookies.</p>
     <div class="consent-buttons">
       <button id="accept-cookies">Accept</button>
@@ -42,15 +44,15 @@
     <h1>Projects</h1>
     <div class="button-container">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform" class="feedback-button" target="_blank" rel="noopener noreferrer">Give Feedback</a>
-      <button id="themeSwitcher">Switch to Dark Mode</button>
+      <button id="themeSwitcher" aria-pressed="false">Switch to Dark Mode</button>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="games-container">
       <div class="game">
         <div class="game-image">
-          <img src="midnightcrisis.png" alt="Midnight Crisis" />
+          <img src="midnightcrisis.png" alt="Midnight Crisis">
         </div>
         <div class="game-info">
           <h2>Midnight Crisis</h2>
@@ -61,7 +63,7 @@
 
       <div class="game">
         <div class="game-image">
-          <img src="radiantdecay.png" alt="Radiant Decay" />
+          <img src="radiantdecay.png" alt="Radiant Decay">
         </div>
         <div class="game-info">
           <h2>Radiant Decay</h2>
@@ -72,7 +74,7 @@
 
       <div class="game">
         <div class="game-image">
-          <img src="murderswamp.png" alt="Murder Swamp" />
+          <img src="murderswamp.png" alt="Murder Swamp">
         </div>
         <div class="game-info">
           <h2>Murder Swamp</h2>
@@ -105,14 +107,8 @@
     </div>
   </footer>
 
-  <button id="scrollToTopBtn">↑</button>
+  <button id="scrollToTopBtn" aria-label="Scroll to top">↑</button>
 
   <script src="script.js"></script>
-<script>
-  if (localStorage.getItem('darkMode') === 'true') {
-    document.documentElement.classList.add('dark-mode');
-  }
-</script>
-
 </body>
 </html>
