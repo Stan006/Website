@@ -39,6 +39,12 @@ body {
   color: var(--text-dark);
 }
 
+html.dark-mode body {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+
 .dark-mode .updates {
   background-color: var(--card-dark);
 }
