@@ -51,15 +51,28 @@ body {
 }
 
 /* Dark mode styles */
-.dark-mode {
+html.dark-mode {
   background-color: var(--bg-dark);
   color: var(--text-dark);
 }
 
-.dark-mode .updates,
-.dark-mode .game,
-.dark-mode header {
+html.dark-mode body {
+  background-color: var(--bg-dark);
+}
+
+html.dark-mode header {
   background-color: var(--card-dark);
+}
+
+html.dark-mode .game,
+html.dark-mode .updates {
+  background-color: var(--card-dark);
+  color: var(--text-dark);
+}
+
+html.dark-mode .footer-links a,
+html.dark-mode .social-media a {
+  color: var(--text-dark);
 }
 
 /* Header styles */
