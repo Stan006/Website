@@ -22,6 +22,12 @@
 
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<script>
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
 </head>
 <body>
   <div id="cookie-consent-banner" class="cookie-consent-banner">
@@ -102,5 +108,11 @@
   <button id="scrollToTopBtn">↑</button>
 
   <script src="script.js"></script>
+<script>
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
 </body>
 </html>
