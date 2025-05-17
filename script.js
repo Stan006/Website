@@ -1,12 +1,4 @@
-// === Inline snippet to put in your <head> to prevent FOUC ===
-// <script>
-//   if (localStorage.getItem('darkMode') === 'true') {
-//     document.documentElement.classList.add('dark-mode');
-//   }
-// </script>
-
-
-// === Main script (place just before closing </body>) ===
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   // --- Scroll To Top Button ---
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -14,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollToTopBtn.setAttribute("aria-label", "Scroll to top");
     scrollToTopBtn.style.display = "none";
 
-    // Debounced scroll handler
     let scrollTimer;
     window.addEventListener("scroll", () => {
       clearTimeout(scrollTimer);
@@ -34,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let darkMode = localStorage.getItem("darkMode") === "true";
 
   if (themeSwitcher) {
-    // Use a real <button> with aria-pressed
     themeSwitcher.setAttribute("role", "button");
     themeSwitcher.setAttribute("tabindex", "0");
     themeSwitcher.setAttribute("aria-pressed", darkMode.toString());
@@ -71,12 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (banner && acceptBtn && rejectBtn) {
     const consent = localStorage.getItem("cookieConsent");
 
-    // Hide banner if already decided
     if (consent === "accepted") {
       banner.style.display = "none";
       loadAnalytics();
     } else if (consent === "rejected") {
       banner.style.display = "none";
+    } else {
+      banner.classList.add("show");
     }
 
     acceptBtn.addEventListener("click", () => {
@@ -91,9 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Only inject GA after consent
   function loadAnalytics() {
-    if (document.getElementById("gtag-script")) return; // Prevent double-load
+    if (document.getElementById("gtag-script")) return;
 
     const script = document.createElement("script");
     script.id = "gtag-script";
@@ -103,10 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     script.onload = () => {
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
       gtag("config", "G-2FD0X1BBMS");
       console.log("Google Analytics tracking enabled");
     };
   }
 });
+</script>
