@@ -15,6 +15,22 @@
   --accent: #ff4444;
 }
 
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* Make html and body full height for flex layout */
 html, body {
   height: 100%;
@@ -34,17 +50,19 @@ body {
   min-height: 100vh;
 }
 
-/* Dark mode applies on html */
-html.dark-mode {
+/* Dark mode styles */
+.dark-mode {
   background-color: var(--bg-dark);
   color: var(--text-dark);
 }
 
-html.dark-mode .updates {
+.dark-mode .updates,
+.dark-mode .game,
+.dark-mode header {
   background-color: var(--card-dark);
 }
 
-/* Header colors adapt to theme */
+/* Header styles */
 header {
   background-color: var(--card-light);
   color: var(--text-light);
@@ -56,11 +74,6 @@ header {
   top: 0;
   z-index: 1000;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-html.dark-mode header {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
 }
 
 .button-container {
@@ -100,7 +113,7 @@ html.dark-mode header {
   outline: none;
 }
 
-/* Make main grow to fill available space and push footer down */
+/* Main content */
 main {
   flex: 1 0 auto;
   max-width: 1200px;
@@ -124,11 +137,6 @@ main {
   flex-direction: column;
   overflow: hidden;
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-html.dark-mode .game {
-  background-color: var(--card-dark);
-  color: var(--text-dark);
 }
 
 .game:hover {
@@ -162,10 +170,6 @@ html.dark-mode .game {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html.dark-mode .updates {
-  background-color: var(--card-dark);
-}
-
 .updates ul {
   list-style: inside disc;
   margin-top: 10px;
@@ -173,7 +177,7 @@ html.dark-mode .updates {
   color: inherit;
 }
 
-/* Footer should not grow and always stay at bottom */
+/* Footer */
 footer {
   flex-shrink: 0;
   background-color: #222;
@@ -234,8 +238,6 @@ footer {
 
 /* Cookie Consent Banner */
 .cookie-consent-banner {
-  opacity: 0;
-  pointer-events: none;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -244,13 +246,12 @@ footer {
   text-align: center;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
   z-index: 1001;
+  opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .cookie-consent-banner.show {
-  display: block;
   opacity: 1;
-  pointer-events: auto;
 }
 
 .cookie-consent-banner p {
