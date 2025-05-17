@@ -1,9 +1,7 @@
-<script>
 document.addEventListener("DOMContentLoaded", () => {
   // --- Scroll To Top Button ---
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
   if (scrollToTopBtn) {
-    scrollToTopBtn.setAttribute("aria-label", "Scroll to top");
     scrollToTopBtn.style.display = "none";
 
     let scrollTimer;
@@ -25,8 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let darkMode = localStorage.getItem("darkMode") === "true";
 
   if (themeSwitcher) {
-    themeSwitcher.setAttribute("role", "button");
-    themeSwitcher.setAttribute("tabindex", "0");
     themeSwitcher.setAttribute("aria-pressed", darkMode.toString());
     themeSwitcher.textContent = darkMode
       ? "Switch to Light Mode"
@@ -62,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const consent = localStorage.getItem("cookieConsent");
 
     if (consent === "accepted") {
-      banner.style.display = "none";
       loadAnalytics();
     } else if (consent === "rejected") {
       banner.style.display = "none";
@@ -72,13 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     acceptBtn.addEventListener("click", () => {
       localStorage.setItem("cookieConsent", "accepted");
-      banner.style.display = "none";
+      banner.classList.remove("show");
       loadAnalytics();
     });
 
     rejectBtn.addEventListener("click", () => {
       localStorage.setItem("cookieConsent", "rejected");
-      banner.style.display = "none";
+      banner.classList.remove("show");
     });
   }
 
@@ -96,8 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
       function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
       gtag("config", "G-2FD0X1BBMS");
-      console.log("Google Analytics tracking enabled");
     };
   }
 });
-</script>
