@@ -1,184 +1,306 @@
-/* Reset default margin and padding for all elements */
-body, h1, h2, p {
+/* Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* General body styling */
+:root {
+  --bg-light: #f0f0f0;
+  --bg-dark: #1a1a1a;
+  --card-light: #ffffff;
+  --card-dark: #2a2a2a;
+  --text-light: #000000;
+  --text-dark: #ffffff;
+  --accent: #ff4444;
+}
+
+/* Make html and body full height for flex layout */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: var(--bg-light);
+  color: var(--text-light);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* Flexbox layout for sticky footer */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Header styling */
+.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.dark-mode .updates {
+  background-color: var(--card-dark);
+}
+
+/* Header colors adapt to theme */
 header {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--card-light);
+  color: var(--text-light);
   padding: 20px;
-  text-align: center;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+.dark-mode header {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
 }
 
 .feedback-button {
-  display: inline-block;
-  background-color: #f00;
-  color: #fff;
+  background-color: var(--accent);
+  color: white;
   padding: 10px 15px;
-  text-decoration: none;
+  border: none;
   border-radius: 5px;
-  font-size: 0.9rem;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.feedback-button:hover {
-  background-color: #c00;
+.feedback-button:hover,
+.feedback-button:focus-visible {
+  background-color: #cc0000;
+  outline: none;
 }
 
-/* Main container */
+#themeSwitcher {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#themeSwitcher:hover,
+#themeSwitcher:focus-visible {
+  background-color: #0056b3;
+  outline: none;
+}
+
+/* Make main grow to fill available space and push footer down */
 main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex: 1 0 auto;
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 20px;
 }
 
-/* Game section styling */
 .games-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  flex: 1 1 100%;
+  margin-bottom: 40px;
 }
 
 .game {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  flex: 1 1 calc(50% - 10px);
+  background-color: var(--card-light);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.game-image {
-  height: 200px;
-  overflow: hidden;
+.dark-mode .game {
+  background-color: var(--card-dark);
+}
+
+.game:hover {
+  transform: translateY(-5px);
 }
 
 .game-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
 .game-info {
   padding: 15px;
 }
 
-.game h2 {
-  font-size: 1.2rem;
+.game-info h2 {
   margin-bottom: 10px;
 }
 
-.game-info p {
-  font-size: 0.9rem;
-  margin-bottom: 10px;
+.coming-soon {
+  color: gray;
+  font-weight: bold;
 }
 
-.game-info a {
-  display: inline-block;
-  background-color: #333;
-  color: #fff;
-  padding: 8px 12px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-}
-
-.game-info a:hover {
-  background-color: #f00;
-}
-
-/* Updates section */
 .updates {
-  flex: 1 1 calc(50% - 10px);
-  background-color: #f9f9f9;
+  margin-top: 40px;
+  background-color: var(--card-light);
+  border-radius: 12px;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.updates h2 {
-  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .updates ul {
-  list-style: none;
-  padding: 0;
+  list-style: inside disc;
+  margin-top: 10px;
+  padding-left: 15px;
+  color: inherit;
 }
 
-.updates li {
+/* Footer should not grow and always stay at bottom */
+footer {
+  flex-shrink: 0;
+  background-color: #222;
+  color: #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-links,
+.social-media {
   margin-bottom: 10px;
-  font-size: 0.9rem;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.8rem;
-  }
+.footer-links a,
+.social-media a {
+  color: #ccc;
+  margin: 0 10px;
+  text-decoration: none;
+}
 
-  .feedback-button {
-    position: static;
-    margin-top: 10px;
-    transform: none;
-  }
+.footer-links a:hover,
+.social-media a:hover,
+.footer-links a:focus-visible,
+.social-media a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
 
-  main {
+/* Scroll To Top Button */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  padding: 0;
+  font-size: 22px;
+  font-weight: bold;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#scrollToTopBtn:hover,
+#scrollToTopBtn:focus-visible {
+  background-color: #cc0000;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Cookie Consent Banner */
+.cookie-consent-banner {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #eee;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  transition: opacity 0.4s ease;
+}
+
+.cookie-consent-banner.show {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cookie-consent-banner p {
+  margin-bottom: 10px;
+}
+
+.consent-buttons button {
+  margin: 0 10px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#accept-cookies {
+  background-color: #28a745;
+  color: white;
+}
+
+#accept-cookies:hover,
+#accept-cookies:focus-visible {
+  background-color: #218838;
+  outline: none;
+}
+
+#reject-cookies {
+  background-color: #dc3545;
+  color: white;
+}
+
+#reject-cookies:hover,
+#reject-cookies:focus-visible {
+  background-color: #c82333;
+  outline: none;
+}
+
+/* Accessibility: focus outlines */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+  .games-container {
     flex-direction: column;
-    padding: 10px;
   }
 
-  .games-container, .updates {
-    flex: 1 1 100%;
+  header {
+    flex-direction: column;
+    gap: 15px;
   }
 
-  .game {
-    flex: 1 1 100%;
-  }
-
-  .game-image {
-    height: 150px;
-  }
-
-  .game-info {
-    padding: 10px;
-  }
-
-  .game-info a {
-    font-size: 0.8rem;
-    padding: 5px 10px;
-  }
-
-  .updates {
-    padding: 15px;
-  }
-
-  .updates h2 {
-    font-size: 1.2rem;
+  .button-container {
+    justify-content: center;
   }
 }
