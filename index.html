@@ -1,560 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WheatBread Projects</title>
-      <!-- SEO Meta Tags -->
-      <meta name="description" content="Explore WheatBread Projects featuring thrilling indie games.">
-      <meta name="keywords" content="indie games, horror games, adventure games">
-      <meta name="author" content="WheatBread Studios">
-  
-      <!-- Open Graph (OG) Meta Tags -->
-      <meta property="og:title" content="WheatBread Projects">
-      <meta property="og:description" content="Dive into our thrilling indie games and updates.">
-      <meta property="og:url" content="https://stan006.github.io/Website/index.html">
-  
-      <!-- Twitter Card Meta Tags -->
-      <meta name="twitter:card" content="summary_large_image">
-    <style>
-        /* General styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WheatBread Projects</title>
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore WheatBread Projects featuring thrilling indie games." />
+  <meta name="keywords" content="indie games, horror games, adventure games" />
+  <meta name="author" content="WheatBread Studios" />
 
-        header h1 {
-            margin: 0;
-        }
+  <!-- Open Graph (OG) Meta Tags -->
+  <meta property="og:title" content="WheatBread Projects" />
+  <meta property="og:description" content="Dive into our thrilling indie games and updates." />
+  <meta property="og:url" content="https://stan006.github.io/Website/index.html" />
+  <meta property="og:image" content="https://stan006.github.io/Website/preview.jpg" />
 
-      /* Feedback button styling */
-.feedback-button {
-    background-color: #f00;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    display: inline-block;
-}
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://stan006.github.io/Website/preview.jpg" />
 
-.feedback-button:hover {
-    background-color: #c00;
-}
-
-        main {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Game section container */
-        .games-container {
-            display: flex;
-            overflow-x: auto; /* Enable horizontal scrolling */
-            gap: 20px; /* Add space between games */
-            scroll-behavior: smooth;
-            padding-bottom: 10px;
-        }
-
-        .game {
-            flex: 0 0 300px; /* Set fixed width for each game card */
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .game-image img {
-            width: 100%;
-            height: auto;
-        }
-
-        .game-info {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .game-info h2 {
-            margin: 0 0 10px;
-            font-size: 20px;
-        }
-
-        .game-info p {
-            margin: 0 0 15px;
-            max-height: 100px; /* Limit the height of the description */
-            overflow-y: auto; /* Enable vertical scrolling if content exceeds */
-            padding-right: 5px;
-        }
-
-        .game-info p::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .game-info p::-webkit-scrollbar-thumb {
-            background-color: #333;
-            border-radius: 3px;
-        }
-
-        .game-info p::-webkit-scrollbar-thumb:hover {
-            background-color: #f00;
-        }
-
-        .game-info a {
-            color: #f00;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: auto;
-        }
-
-        .game-info a:hover {
-            text-decoration: underline;
-        }
-
-        .updates {
-            margin-top: 40px;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .updates h2 {
-            margin-top: 0;
-        }
-
-        .updates ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .updates li {
-            margin-bottom: 10px;
-        }
-
-        /* Media queries for responsive design */
-        @media (max-width: 768px) {
-            .games-container {
-                flex-direction: column;
-                overflow-x: visible;
-            }
-
-            .game {
-                flex: 0 0 auto;
-                margin-bottom: 20px;
-            }
-        }
-
-    /* Footer styles */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        footer .footer-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        footer .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        footer .social-media {
-            margin-top: 20px;
-        }
-
-        footer .social-media a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        footer .social-media a:hover {
-            color: #f00;
-        }
-
-        footer .copyright {
-            margin-top: 20px;
-            font-size: 0.8rem;
-        }
-
-        /* Scroll to Top Button styles */
-        #scrollToTopBtn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #f00;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: opacity 0.3s;
-        }
-
-        #scrollToTopBtn:hover {
-            background-color: #c00;
-        }
-
-        /* Theme Switcher Button Styling */
-#themeSwitcher {
-    padding: 6px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-#themeSwitcher:hover {
-    background-color: #0056b3;
-}
-
-        /* Dark Theme Styles */
-        body.dark-mode {
-            background-color: #333;
-            color: white;
-        }
-
-        header.dark-mode {
-            background-color: #222;
-        }
-
-        .game {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            padding: 15px;
-            color: #333; /* Default text color for light mode */
-        }
-
-        .game-info {
-            padding: 15px;
-        }
-
-        .game-info h2, .game-info p {
-            color: #333; /* Default text color for light mode */
-        }
-
-        /* Dark Theme Game Section */
-        body.dark-mode .game {
-            background-color: #444;
-            color: white; /* Text color for dark mode */
-        }
-
-        body.dark-mode .game-info h2,
-        body.dark-mode .game-info p {
-            color: white; /* Ensures the text in dark mode is visible */
-        }
-
-        /* Updates Section Styles */
-        .updates {
-            background-color: white;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            color: #333; /* Default text color for light mode */
-        }
-
-        /* Dark Theme Updates Section */
-        body.dark-mode .updates {
-            background-color: #444;
-            color: white; /* Text color for dark mode */
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .game {
-                margin-bottom: 20px;
-            }
-        }
-
-        /* Button container for alignment */
-.button-container {
-    display: flex;
-    justify-content: space-between; /* Space between buttons */
-    position: absolute;
-    top: 20px; /* Distance from the top of the header */
-    right: 20px; /* Keep the feedback button on the right */
-    left: 20px; /* Keep the theme button on the left */
-}
-
-/* Media Query for Mobile Devices */
-@media (max-width: 768px) {
-    /* Stack buttons vertically on mobile */
-    .button-container {
-        flex-direction: row; /* Stack buttons vertically */
-        position: static; /* Reset positioning */
-        top: auto; /* Reset top positioning */
-        right: auto; /* Reset right positioning */
-        left: auto; /* Reset left positioning */
-       /* align-items: center;  Center buttons */
-        justify-content: flex-start;
-        gap: 10px; /* Space between buttons */
-    }
-
-    }
-
-    /* Basic styling for the cookie consent banner */
-    .cookie-consent-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            z-index: 9999;
-        }
-
-        .cookie-consent-banner button {
-            background-color: #f00;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .cookie-consent-banner button:hover {
-            background-color: #c00;
-        }
-        
-    </style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 </head>
-
 <body>
-
-
-   <!-- Cookie Consent Banner -->
-<div id="cookie-consent-banner" class="cookie-consent-banner">
+  <div id="cookie-consent-banner" class="cookie-consent-banner">
     <p>We use cookies to enhance your experience. By clicking "Accept", you consent to our use of cookies.</p>
-    <button id="accept-cookies">Accept</button>
-    <button id="reject-cookies">Reject</button>
-</div>
-
-
-    <header>
-        <h1>Projects</h1>
-        <div class="button-container">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform"
-            class="feedback-button">Give Feedback</a>
-        <button id="themeSwitcher">Switch to Dark Mode</button>
+    <div class="consent-buttons">
+      <button id="accept-cookies">Accept</button>
+      <button id="reject-cookies">Reject</button>
     </div>
-    </header>
-    <main>
-        <section class="games-container">
-            <div class="game">
-                <div class="game-image">
-                    <img src="OJp0eZ.png" alt="Midnight Crisis">
-                </div>
-                <div class="game-info">
-                    <h2>Midnight Crisis</h2>
-                    <p>Welcome to Midnight Crisis, a bone-chilling horror game that will leave you breathless as you
-                        explore a terrifying world full of suspense and mystery. Prepare for endless thrills!</p>
-                    <a href="https://stanwheatbread.itch.io/midnight-crisis-full-game" target="_blank">Play on itch.io</a>
-                </div>
-            </div>
+  </div>
 
-            <div class="game">
-                <div class="game-image">
-                    <img src="mainbannerradiant.PNG" alt="Radiant Decay">
-                </div>
-                <div class="game-info">
-                    <h2>Radiant Decay</h2>
-                    <p>Investigative journalist Ethan Brown pursues a trail of whispers to a hidden nuclear plant with
-                        secrets that could change the world forever. Can he uncover the truth before it's too late?</p>
-                    <a href="https://stanwheatbread.itch.io/radiant-decay" target="_blank">Play on itch.io</a>
-                </div>
-            </div>
-            
-            <div class="game">
-                <div class="game-image">
-                    <img src="game3.png" alt="Murder Swamp">
-                </div>
-                <div class="game-info">
-                    <h2>Murder Swamp</h2>
-                    <p>A disgraced detective, recently expelled from the police force, becomes obsessed with unraveling the truth
-                    behind a haunting case of missing children, driven by a relentless need for answers and a descent into obsession.</p>
-                    <a href="" target="_blank">Coming Soon</a>
-                </div>
-            </div>
-            
-        </section>
+  <header>
+    <h1>Projects</h1>
+    <div class="button-container">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3crYZ81A9X8qIw_ltiZH--sPRmwmlptewWWeog09Y23yGOA/viewform" class="feedback-button" target="_blank" rel="noopener noreferrer">Give Feedback</a>
+      <button id="themeSwitcher">Switch to Dark Mode</button>
+    </div>
+  </header>
 
-        <section class="updates">
-            <h2>Game Updates</h2>
-            <ul>
-                <li><strong>17/9/23:</strong> Radiant Decay has been released! Play Now <a
-                        href="https://stanwheatbread.itch.io/radiant-decay">Here</a>.</li>
-            </ul>
-        </section>
-        <br><br><br><br>
-    </main>
-        <br><br><br><br>
-    <footer>
-        <div class="footer-links">
-            <a href="#">About Us</a>
-            <a href="legal.html">Legal</a>
-            <a href="#">Contact</a>
+  <main>
+    <section class="games-container">
+      <div class="game">
+        <div class="game-image">
+          <img src="OJp0eZ.png" alt="Midnight Crisis" />
         </div>
-
-        <div class="social-media">
-            <a href="https://stanwheatbread.itch.io/" target="https://stanwheatbread.itch.io/">Itch.io</a>
-            <a href="https://bsky.app/profile/wheatbreadstudio.bsky.social" target="https://bsky.app/profile/wheatbreadstudio.bsky.social">BlueSky</a>
+        <div class="game-info">
+          <h2>Midnight Crisis</h2>
+          <p>Welcome to Midnight Crisis, a bone-chilling horror game that will leave you breathless as you explore a terrifying world full of suspense and mystery. Prepare for endless thrills!</p>
+          <a href="https://stanwheatbread.itch.io/midnight-crisis-full-game" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
         </div>
+      </div>
 
-        <div class="copyright">
-            &copy; 2024 WheatBread Studios. All rights reserved.
+      <div class="game">
+        <div class="game-image">
+          <img src="mainbannerradiant.PNG" alt="Radiant Decay" />
         </div>
-    </footer>
+        <div class="game-info">
+          <h2>Radiant Decay</h2>
+          <p>Investigative journalist Ethan Brown pursues a trail of whispers to a hidden nuclear plant with secrets that could change the world forever. Can he uncover the truth before it's too late?</p>
+          <a href="https://stanwheatbread.itch.io/radiant-decay" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
+        </div>
+      </div>
 
-         <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+      <div class="game">
+        <div class="game-image">
+          <img src="game3.png" alt="Murder Swamp" />
+        </div>
+        <div class="game-info">
+          <h2>Murder Swamp</h2>
+          <p>A disgraced detective, recently expelled from the police force, becomes obsessed with unraveling the truth behind a haunting case of missing children, driven by a relentless need for answers and a descent into obsession.</p>
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        // Get the button
-        let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    <section class="updates">
+      <h2>Game Updates</h2>
+      <ul>
+        <li><time datetime="2023-09-17">September 17, 2023</time>: Radiant Decay has been released! Play Now <a href="https://stanwheatbread.itch.io/radiant-decay" target="_blank" rel="noopener noreferrer">Here</a>.</li>
+      </ul>
+    </section>
+  </main>
 
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollToTopBtn.style.display = "block";
-            } else {
-                scrollToTopBtn.style.display = "none";
-            }
-        };
+  <footer>
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="legal.html">Legal</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="social-media">
+      <a href="https://stanwheatbread.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
+      <a href="https://bsky.app/profile/wheatbreadstudio.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a>
+    </div>
+    <div class="copyright">
+      &copy; 2024 WheatBread Studios. All rights reserved.
+    </div>
+  </footer>
 
-        // When the user clicks the button, scroll to the top of the document
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }
-    </script>
+  <button id="scrollToTopBtn">↑</button>
 
-    <script>
-    const themeSwitcher = document.getElementById('themeSwitcher');
-
-    // Check saved theme preference on page load
-    const savedTheme = localStorage.getItem('darkMode');
-    let darkMode = savedTheme === 'true'; // Convert string back to boolean
-
-    // Apply saved theme on page load
-    if (darkMode) {
-        document.body.classList.add('dark-mode');
-        themeSwitcher.textContent = 'Switch to Light Mode';
-    } else {
-        themeSwitcher.textContent = 'Switch to Dark Mode';
-    }
-
-    // Toggle theme and save preference
-    themeSwitcher.addEventListener('click', () => {
-        darkMode = !darkMode;
-
-        if (darkMode) {
-            document.body.classList.add('dark-mode');
-            themeSwitcher.textContent = 'Switch to Light Mode';
-        } else {
-            document.body.classList.remove('dark-mode');
-            themeSwitcher.textContent = 'Switch to Dark Mode';
-        }
-
-        // Save the current theme preference
-        localStorage.setItem('darkMode', darkMode);
-    });
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const banner = document.getElementById("cookie-consent-banner");
-  const acceptBtn = document.getElementById("accept-cookies");
-  const rejectBtn = document.getElementById("reject-cookies");
-
-  // Check if the user already accepted or rejected cookies
-  if (localStorage.getItem('cookieConsent') === 'accepted') {
-    banner.style.display = 'none'; // Hide banner if already accepted
-    enableGoogleTracking(); // Enable Google Analytics or any other tracking
-  } else if (localStorage.getItem('cookieConsent') === 'rejected') {
-    banner.style.display = 'none'; // Hide banner if already rejected
-  }
-
-  // Accept button functionality
-  acceptBtn.addEventListener("click", function () {
-    localStorage.setItem('cookieConsent', 'accepted'); // Store the acceptance in localStorage
-    banner.style.display = 'none'; // Hide the banner
-    enableGoogleTracking(); // Enable Google Analytics or any other tracking
-    console.log('Cookies accepted');
-  });
-
-  // Reject button functionality
-  rejectBtn.addEventListener("click", function () {
-    localStorage.setItem('cookieConsent', 'rejected'); // Store the rejection in localStorage
-    banner.style.display = 'none'; // Hide the banner
-    console.log('Cookies rejected');
-  });
-
-  // Function to enable Google Analytics tracking after consent
-  function enableGoogleTracking() {
-    // Replace with your actual Google Analytics tracking code (Global Site Tag)
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-2FD0X1BBMS';
-    document.head.appendChild(script);
-
-    script.onload = function () {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2FD0X1BBMS');
-      console.log('Google Analytics tracking enabled');
-    };
-  }
-});
-</script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
